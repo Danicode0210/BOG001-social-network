@@ -10,12 +10,22 @@ const oneView = () => {
   document.getElementById("root").innerHTML = initialSession();
 };
 oneView();
+ */
 
 /*const twoView = () => {
   document.getElementById("root").innerHTML = postAdoption(); 
 }; 
 twoView(); */
 
+const threeView = () => {
+  document.getElementById('root').innerHTML = formRegister();
+};
+threeView();
+ */
+
+
+
+/*
 function locationHashChanged() {
   const location = document.getElementById("login");
   if (location.hash === "#postadoption") {
