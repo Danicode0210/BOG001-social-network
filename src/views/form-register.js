@@ -19,7 +19,7 @@ const register = () => {
 };
 export default register;
 
-
+/* Función para registrarse */
 export const añadirEventos = () => {
   const signupForm = document.querySelector('#signup-form');
   console.log(signupForm)
@@ -34,6 +34,7 @@ export const añadirEventos = () => {
     auth
       .createUserWithEmailAndPassword(signupEmail, signupPassword)
       .then(userCredential => {
+        sendEmail();
         signupForm.reset();
 
 
@@ -44,4 +45,16 @@ export const añadirEventos = () => {
   })
 };
 
+/* enviar email de verificación */
+
+export const sendEmail = () => {
+  const user = firebase.auth().currentUser;
+
+  user.sendEmailVerification()
+    .then(function () {
+      console.log('El correo se envio');
+    }, function (error) {
+      console.log('error')
+    })
+}
 
