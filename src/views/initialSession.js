@@ -3,23 +3,23 @@ const initialSession = () => {
 <main>
   <header class="header">
     <img src=" ../images/logo.png" alt="logo" class="logo-adopt">
-    </header>
-    <section class="items-login"> 
-    <img src="../images/user.png" alt="user" class="user">
-      <img src="../images/password.png" alt="password" class="password"></img>
-    </section>
-    <form id="formLogin">
-      <input type="email" class="user-placeholder" id="loginEmail" placeholder="Email">
-      <div class="line-white-login"></div>
-      <input type="password" class="password-placeholder" id="loginPassword" placeholder="Password">
-      <button type="submit" id="buttonLogin">Login</button>
-  <a href="#" class"forgot"> Forgot your password ?</a>
-  <a href="#/formRegister" class="register">Register</a>
-  <button type="button" id="Gmail">Sign up with google</button>
-  <div class="line-white-register"></div>
-  </div>
+  </header>
+  <section class='linea'> </section>
+  <form id="formLogin">
+    <input type="email" class="user-placeholder" id="loginEmail" placeholder="Email">
+    <input type="text" class="password-placeholder" id="loginPassword" placeholder="Password">
+    <button type="submit" id="buttonLogin">Login</button>
+    <img src="../images/Ojitoabierto.png" id="verClave">
+    <a href="#/formRegister" class="register">Register</a>
+    <button type="button" id="Gmail">Sign up with Gmail</button>
   </form>
-
+  <section class="items-login">
+    <img src="../images/user.png" alt="user" class="user">
+    <img src="../images/password.png" alt="password" class="password"></img>
+  </section>
+  <div class="dogs-home">
+    <img src="../images/dogs-home.png" alt="dogs-home">
+  </div>
   `;
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
@@ -28,6 +28,8 @@ const initialSession = () => {
 
 export default initialSession;
 
+
+/* Validación de formulario de entrada a la aplicación */
 
 export const login = () => {
   const loginForm = document.querySelector('#formLogin');
@@ -53,7 +55,10 @@ export const login = () => {
 
 };
 
-//GMAIL Login
+
+
+/* Login con gmail */
+
 export const gmail = () => {
   const gmailbutton = document.querySelector('#Gmail')
   gmailbutton.addEventListener('click', e => {
@@ -68,4 +73,24 @@ export const gmail = () => {
       })
 
   })
-} 
+}
+
+/* ver u ocultar contraseña*/
+
+
+export const mostrarContraseña = () => {
+  const verContraseña = document.getElementById("verClave");
+  const inputContraseña = document.getElementById("loginPassword");
+  verContraseña.addEventListener('click', mostrarContraseña);
+
+  if (inputContraseña.type == 'text') {
+    inputContraseña.type = 'password';
+    /* inputContraseña.src = 'Ojitoabierto.png';
+    */
+  } else {
+    inputContraseña.type = 'text';
+    /* inputContraseña.src = "Ojitocerrado.png";
+    */
+
+  }
+}

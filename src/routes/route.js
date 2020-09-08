@@ -6,6 +6,8 @@ import { añadirEventos } from "../views/form-register.js"
 import register from "../views/form-register.js"
 import { login, gmail } from "../views/initialSession.js"
 import { postInitial } from "../views/post-adoption.js"
+import { mostrarContraseña } from "../views/initialSession.js"
+
 
 
 
@@ -21,6 +23,7 @@ const router = async (route) => {
             await content.appendChild(pedazoDelDom)
             await login();
             await gmail();
+            await mostrarContraseña();
             break;
         //RUTA USER NOT REGISTER
         case '#/formRegister':
@@ -42,11 +45,9 @@ const router = async (route) => {
             await content.appendChild(pedazoDelDom)
             await login();
             await gmail();
-
+            await mostrarContraseña();
 
     }
-
-
 
 };
 
