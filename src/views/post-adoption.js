@@ -9,6 +9,7 @@ const postAdoption = () => {
     <form class="post_container" id="post-container">
         <input type='text' class="title-post" id="title-post" placeholder="Title...">
         <input type='text' class="new_post" id="new-post" placeholder="What motivated me...">
+        <input type='file' accept=".png, .jpg" (change)="onupload($event)">
         <button type='submit' class="publish_button" id="publish-button">Publish</button>
     </form>
     <h2>Welcome to the biggest pet adoption community</h2>
@@ -42,7 +43,7 @@ export const postInitial = () => {
         const titlePost = postContainer['title-post'];
         const textPost = postContainer['new-post'];
         console.log(titlePost, textPost)
-        await savePost(titlePost.value, textPost.value);
+        await savePost(titlePost.value, textPost.value, uploadImgPost.value);
         postContainer.reset();
         titlePost.focus();
 
@@ -59,7 +60,6 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         console.log(post)
         post.innerHTML = "";
         querySnapshot.forEach(doc => {
-            console.log(doc.data());
 
             const post = doc.data();
             containerPost.innerHTML += `
@@ -76,3 +76,39 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     })
 
 })
+
+
+
+//Cargar Imagen
+
+
+
+export const uploadImgPost = (file, uid) => {
+
+    const refStorage = firebase.storage().ref(`imgsPosts/${uid}/${file.name}`)
+    const files = refStorage.put(file)
+    const fileUpload = e.target.files[0];
+    const user = firebase.auth().currentUser;
+    uploadImgPost(fileUpload, user.uid);
+    files.on('state_changed', snapshot => {
+        const porcentaje = snapshot.bytesTransferred / snapshot.totalBytes * 100
+        porcentaje();
+
+    },
+        err => {
+            console.log(err)
+        },
+
+        () => {
+            files.snapshot.ref.getDownloadURL()
+                .then(url => {
+                    localStorage.setItem('imgNewPost', url)
+                })
+                .catch(err => {
+                    console.log(err)
+                });
+        });
+
+
+
+}

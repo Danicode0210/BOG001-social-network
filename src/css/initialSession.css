@@ -105,10 +105,13 @@ body{
 
 /* RESPONSIVE VISTA LOGIN */
 
-@media screen and (min-width: 320px) and (max-width: 480px){
+@media screen and (max-width: 320px){
 body{
     background: #00FFB1;
 }
+.items-login{
+    margin-right: 100%;
+} 
 
 .logo-adopt{
 margin-right: 50px;
@@ -143,7 +146,6 @@ margin-right: 50px;
     color: white;
 }  
 
-
 #Gmail{
     right: 10px;
     margin-top: 175px;
@@ -160,20 +162,89 @@ margin-right: 50px;
 
 
 
-@media screen and (max-width:480px){
+ @media screen and (min-width:480px) and (max-width: 480px) {
     body{
         background: #00FFB1;
     }
      .items-login{
-        margin-right: 100%;
+        margin-right: 75%;
     } 
-    
+    .user-placeholder{
+        position: absolute;
+        margin-top: 30px;
+        border: none;
+        outline:none;
+         background-color:#00FFB1;
+         margin-left: 35%;
+        height: 20px;
+    }
+    .password-placeholder{
+        position: absolute;
+        margin-top: 90px;
+           border: none;
+           outline:none;
+           background-color: #00FFB1;
+           margin-left: 35%;
+           height: 20px;
+    }
+    .register{ 
+        text-decoration: none;
+        position: absolute;
+        margin-top: 55%;
+        margin-left: 100px;
+    }
+    #verClave{  
+
+        margin-left: 75%;
+    } 
+.dogs-home img{
+    margin-top: 50%;
+    margin-left: 63px;
+    width: 400px;
+    height: 400px;
+}
+#buttonLogin{
+    margin-top: 33%;
+    margin-right: 85px;
 }
 
+} 
 
 @media screen and (max-width:768px){
-   
-    
+    .header .logo-adopt {
+        width: 30%;
+    }
+    .items-login{
+        margin-right: 75%;
+    } 
+    .user-placeholder{
+        position: absolute;
+        margin-top: 30px;
+        border: none;
+        outline:none;
+         background-color:#7AE8AB;;
+         margin-left: 35%;
+        height: 20px;
+    }
+    .password-placeholder{
+        position: absolute;
+        margin-top: 90px;
+           border: none;
+           outline:none;
+           background-color: #7AE8AB;;
+           margin-left: 35%;
+           height: 20px;
+    }
+    .register{ 
+        text-decoration: none;
+        position: absolute;
+        margin-top: 55%;
+        margin-left: 100px;
+    }
+    #verClave{  
+
+        margin-left: 75%;
+    } 
 
 }
 
