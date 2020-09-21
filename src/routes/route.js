@@ -7,8 +7,6 @@ import register from "../views/form-register.js"
 import { login, gmail } from "../views/initialSession.js"
 import { postInitial } from "../views/post-adoption.js"
 import { mostrarContraseña } from "../views/initialSession.js"
-import { uploadImgPost } from "../views/post-adoption.js"
-
 
 
 
@@ -36,7 +34,6 @@ export const router = async (route) => {
             pedazoDelDom = await postAdoption();
             await content.appendChild(pedazoDelDom)
             await postInitial();
-            await uploadImgPost();
             break;
         case '#/adopt':
             pedazoDelDom = adopt();

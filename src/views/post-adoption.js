@@ -43,7 +43,7 @@ export const postInitial = () => {
         const titlePost = postContainer['title-post'];
         const textPost = postContainer['new-post'];
         console.log(titlePost, textPost)
-        await savePost(titlePost.value, textPost.value, uploadImgPost.value);
+        await savePost(titlePost.value, textPost.value);
         postContainer.reset();
         titlePost.focus();
 
@@ -79,36 +79,4 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 
 
-//Cargar Imagen
 
-
-
-export const uploadImgPost = (file, uid) => {
-
-    const refStorage = firebase.storage().ref(`imgsPosts/${uid}/${file.name}`)
-    const files = refStorage.put(file)
-    const fileUpload = e.target.files[0];
-    const user = firebase.auth().currentUser;
-    uploadImgPost(fileUpload, user.uid);
-    files.on('state_changed', snapshot => {
-        const porcentaje = snapshot.bytesTransferred / snapshot.totalBytes * 100
-        porcentaje();
-
-    },
-        err => {
-            console.log(err)
-        },
-
-        () => {
-            files.snapshot.ref.getDownloadURL()
-                .then(url => {
-                    localStorage.setItem('imgNewPost', url)
-                })
-                .catch(err => {
-                    console.log(err)
-                });
-        });
-
-
-
-}
