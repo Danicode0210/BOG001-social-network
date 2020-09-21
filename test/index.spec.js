@@ -1,8 +1,14 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from "../src/lib/index";
+import { router } from "./routes/router.js";
 
-describe('myFunction', () => {
+describe('router', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof router).toBe('function');
   });
 });
+it('Deberia llevarnos a la ruta "#/" ', () => {
+
+  const route = "#/";
+
+
+})

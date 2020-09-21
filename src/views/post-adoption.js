@@ -9,6 +9,7 @@ const postAdoption = () => {
     <form class="post_container" id="post-container">
         <input type='text' class="title-post" id="title-post" placeholder="Title...">
         <input type='text' class="new_post" id="new-post" placeholder="What motivated me...">
+        <input type='file' accept=".png, .jpg" (change)="onupload($event)">
         <button type='submit' class="publish_button" id="publish-button">Publish</button>
     </form>
     <h2>Welcome to the biggest pet adoption community</h2>
@@ -59,7 +60,6 @@ window.addEventListener('DOMContentLoaded', async (e) => {
         console.log(post)
         post.innerHTML = "";
         querySnapshot.forEach(doc => {
-            console.log(doc.data());
 
             const post = doc.data();
             containerPost.innerHTML += `
@@ -76,3 +76,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
     })
 
 })
+
+
+
+

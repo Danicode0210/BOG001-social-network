@@ -10,8 +10,7 @@ import { mostrarContraseña } from "../views/initialSession.js"
 
 
 
-
-const router = async (route) => {
+export const router = async (route) => {
     const content = document.getElementById('root');
     content.innerHTML = '';
     let pedazoDelDom = '';
